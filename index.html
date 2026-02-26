@@ -3,162 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>قوانين | مقاطعة السويدي</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-
+<title>قوانين مقاطعة السويدي</title>
 <style>
-* {
+  /* الخطوط والألوان الأساسية */
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+  body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
     font-family: 'Cairo', sans-serif;
-    background: #000;
-    color: #fff;
-    direction: rtl;
-}
+    background-color: #000;
+    color: #FFD700;
+    line-height: 1.6;
+  }
 
-header {
-    background: #000;
-    padding: 25px;
+  h1, h2 {
+    color: #FFD700;
+    text-shadow: 0 0 5px #FFD700;
+  }
+
+  header {
+    background-color: #111;
+    padding: 20px;
     text-align: center;
-    border-bottom: 3px solid #FFD700;
-}
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px #FFD700;
+  }
 
-header h1 {
-    font-size: 40px;
-    color: #FFD700;
-    font-weight: 800;
-}
-
-nav {
-    background: #111;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 15px;
-    border-bottom: 1px solid #FFD700;
-}
-
-nav a {
-    color: #FFD700;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #fff;
-}
-
-.container {
-    max-width: 1000px;
+  main {
+    max-width: 900px;
     margin: 40px auto;
-    padding: 20px;
-}
+    padding: 0 20px;
+  }
 
-.section {
-    background: #111;
-    margin-bottom: 25px;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 5px solid #FFD700;
-    transition: 0.3s;
-}
+  /* الأكورديون */
+  .accordion {
+    background-color: #111;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
 
-.section:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px #FFD70033;
-}
+  .accordion-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+  }
 
-.section h2 {
+  .accordion-header:hover {
+    background-color: #222;
+  }
+
+  .accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion.active .accordion-header::after {
+    content: '-';
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 20px;
+    background-color: #000;
+  }
+
+  .accordion-content p, .accordion-content li {
+    margin: 10px 0;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  li::marker {
     color: #FFD700;
-    margin-bottom: 15px;
-}
+  }
 
-.section ul {
-    list-style: none;
-}
-
-.section ul li {
-    padding: 10px 0;
-    border-bottom: 1px solid #222;
-}
-
-.section ul li:last-child {
-    border-bottom: none;
-}
-
-footer {
+  footer {
     text-align: center;
     padding: 20px;
-    background: #000;
-    border-top: 1px solid #FFD700;
-    color: #FFD700;
+    background-color: #111;
     margin-top: 50px;
-}
+    color: #FFD700;
+    text-shadow: 0 0 3px #FFD700;
+  }
+
+  /* تأثير تحميل الصفحة */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
 </style>
 </head>
-
 <body>
 
-<header>
-    <h1>قوانين مقاطعة السويدي</h1>
-</header>
+<header class="fade-in">مقاطعة السويدي | قوانين السيرفر</header>
 
-<nav>
-    <a href="#general">القوانين العامة</a>
-    <a href="#roleplay">قوانين الرول بلاي</a>
-    <a href="#chat">قوانين الشات</a>
-    <a href="#punishment">العقوبات</a>
-</nav>
+<main class="fade-in">
 
-<div class="container">
-
-    <div class="section" id="general">
-        <h2>📌 القوانين العامة</h2>
-        <ul>
-            <li>يجب احترام جميع اللاعبين والإدارة.</li>
-            <li>يمنع استخدام أي برامج غش أو استغلال الثغرات.</li>
-            <li>الالتزام بالتعليمات الصادرة من الإدارة.</li>
-        </ul>
+  <!-- القوانين العامة -->
+  <div class="accordion">
+    <div class="accordion-header">القوانين العامة</div>
+    <div class="accordion-content">
+      <ul>
+        <li>1.1 الرول بلي | نطاق التمثيل أو تقمص الشخصية داخل المدينة</li>
+        <li>يجب تقمص الشخصية قولاً وفعلاً والتزام بالواقعية واحترام قوانين السيرفر.</li>
+        <li>يمنع الخروج عن التمثيل، ويجب تحكيم الموقف أثناء المخالفات دون الخروج عن التمثيل.</li>
+        <li>تشغيل التصوير أثناء دخول مدينة السويدي لحفظ حقوقك.</li>
+        <li>2.1 القتل العشوائي (RDM) بدون سبب أو تهديد سابق ممنوع.</li>
+        <li>3.1 الصدم بالمركبة (VDM) بشكل عشوائي أو للتخريب ممنوع.</li>
+        <li>يجب أن يكون اسمك في الهوية واقعي (اسم أول وثاني).</li>
+        <li>يمنع التواصل غير الشرعي داخل المدينة.</li>
+        <li>الاحترام المتبادل بين الجميع والالتزام بالتمثيل بشكل كامل.</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="section" id="roleplay">
-        <h2>🎭 قوانين الرول بلاي</h2>
-        <ul>
-            <li>الالتزام بالشخصية وعدم كسر الرول بلاي.</li>
-            <li>يمنع الخروج عن السيناريو بدون سبب منطقي.</li>
-            <li>يجب التفاعل الواقعي داخل المقاطعة.</li>
-        </ul>
+  <!-- قوانين الجريدة والشات -->
+  <div class="accordion">
+    <div class="accordion-header">قوانين الجريدة / شات اللعبة</div>
+    <div class="accordion-content">
+      <ul>
+        <li>1. يمنع الكتابة في الجريدة / الشات إلا للتمثيل.</li>
+        <li>2. تويتر جزء من الجريدة، يمنع الكتابة إلا لإعلانات المتاجر.</li>
+        <li>3. إدارة الرقابة والتفتيش لها الحق بمحاسبة أي مخالفة.</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="section" id="chat">
-        <h2>💬 قوانين الشات</h2>
-        <ul>
-            <li>يمنع السب أو القذف أو العنصرية.</li>
-            <li>يمنع نشر روابط خارجية بدون إذن.</li>
-            <li>يجب استخدام الشات المخصص لكل غرض.</li>
-        </ul>
+  <!-- مطاردات وقيادة -->
+  <div class="accordion">
+    <div class="accordion-header">مطاردات وقيادة</div>
+    <div class="accordion-content">
+      <ul>
+        <li>دخول المنزل أثناء المطاردة ممنوع.</li>
+        <li>تخزين المركبة، الصدم أو القيادة الغير واقعية ممنوع.</li>
+        <li>الهروب عبر البحر بدون قارب مجهز ممنوع.</li>
+        <li>التفحيط في الحدائق يعرضك للسجن أو عمل شاق.</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="section" id="punishment">
-        <h2>⚖️ العقوبات</h2>
-        <ul>
-            <li>المخالفة الأولى: تنبيه.</li>
-            <li>المخالفة الثانية: حظر مؤقت.</li>
-            <li>المخالفة المتكررة: حظر دائم.</li>
-        </ul>
+  <!-- المناطق الآمنة -->
+  <div class="accordion">
+    <div class="accordion-header">المناطق الآمنة</div>
+    <div class="accordion-content">
+      <ul>
+        <li>المستشفيات، مراكز الشرطة، الحرس الحدودي.</li>
+        <li>معارض المركبات والشاحنات، مركز التوظيف، حجز المركبات.</li>
+        <li>مناطق العمل مثل الأخشاب، الدواجن، العنب.</li>
+      </ul>
     </div>
+  </div>
 
-</div>
+  <!-- قوانين الإجرام -->
+  <div class="accordion">
+    <div class="accordion-header">قوانين الإجرام</div>
+    <div class="accordion-content">
+      <ul>
+        <li>الجدية في السرقات وعدم التراخي بين المجرمين ورجال الأمن.</li>
+        <li>ممنوع تهديد أو خطف مواطن بدون سبب وجيه.</li>
+        <li>ممنوع قتل أو اختطاف المفاوض داخل السيناريو.</li>
+        <li>يُمنع القتل بدون سبب/هدف. يجب التحذير أولاً.</li>
+        <li>تقدير الحياة إلزامي، منع مقاومة السلاح بشكل غير منطقي.</li>
+      </ul>
+    </div>
+  </div>
 
-<footer>
-© 2026 مقاطعة السويدي - جميع الحقوق محفوظة
+  <!-- قوانين السرقات -->
+  <div class="accordion">
+    <div class="accordion-header">قوانين السرقات</div>
+    <div class="accordion-content">
+      <ul>
+        <li>بنك المركزي: عدد المجرمين 6-8، عدد الأمن حتى 10.</li>
+        <li>بنك بوليتو | ساندي: المجرمين 3-5، الأمن حتى 6.</li>
+        <li>البار: المجرمين 2-3، الأمن حتى 5.</li>
+        <li>محل الأسلحة: المجرمين 2-3، الأمن حتى 5.</li>
+        <li>الدواجن: المجرمين 4-6، الأمن حتى 7.</li>
+        <li>محل الملابس: المجرمين 2-3، الأمن حتى 5.</li>
+        <li>المختبرات: المجرمين 6-8، الأمن حتى 10.</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer class="fade-in">
+جميع الحقوق محفوظة © 2026 مقاطعة السويدي
 </footer>
+
+<script>
+  // أكورديون
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    acc.querySelector('.accordion-header').addEventListener('click', () => {
+      acc.classList.toggle('active');
+      const content = acc.querySelector('.accordion-content');
+      if(acc.classList.contains('active')){
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
